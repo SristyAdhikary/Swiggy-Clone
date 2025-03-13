@@ -1,0 +1,945 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
+
+
+
+
+
+
+/* media query */
+.container {
+  max-width: 1230px !important;
+}
+
+/* Navbar Styles */
+.dashboard_navbar {
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #fff;
+  z-index: 1000;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+  contain: size layout style;
+  padding: 0 20px;
+}
+
+/* Bottom Navbar Mobile */
+.bottom_nav_Mobile a {
+  color: #3d4152;
+  font-weight: 500;
+}
+
+/* Media Query for Mobile Devices */
+@media (min-width: 320px) and (max-width: 767px) {
+  .dashboard_navbar .navbar-brand {
+    display: none;
+  }
+}
+
+/* Brand Logo */
+.dashboard_navbar .navbar-brand img {
+  width: 7rem;
+}
+
+/* Current Address Head */
+.dashboard_navbar .eat_currentAddress_head {
+  display: flex;
+  align-items: center;
+  /* Center items vertically */
+  justify-content: space-between;
+  /* Space between elements */
+}
+
+/* Responsive Design for Current Address Head */
+@media (min-width: 320px) and (max-width: 481px) {
+  .dashboard_navbar .eat_currentAddress_head {
+    display: flex;
+    /* Ensure it's still a flex container */
+    position: relative;
+    width: 100%;
+    /* Make it take the full width */
+  }
+}
+
+/* Current Address Styles */
+.dashboard_navbar .eat_currentAddress_head span:nth-child(1) {
+  color: #e57a10;
+  font-weight: 600;
+  position: relative;
+  font-size: 14px;
+}
+
+.dashboard_navbar .eat_currentAddress_head span:nth-child(1):before {
+  content: '';
+  position: absolute;
+  border-bottom: 2px solid #e57a10;
+  bottom: -2px;
+  width: 100%;
+}
+
+.dashboard_navbar .eat_currentAddress_head span:nth-child(2) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #686b78;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+/* Responsive Design for Current Address Head Span 2 */
+@media (min-width: 320px) and (max-width: 481px) {
+  .dashboard_navbar .eat_currentAddress_head span:nth-child(2) {
+    width: 250px;
+    display: block;
+    margin-top: 0;
+    /* Corrected margin */
+    position: relative;
+    top: 6px;
+    margin-left: 0;
+    font-size: 12px;
+  }
+}
+
+/* Icons in Navbar */
+.dashboard_navbar .navbar-collapse {
+  display: flex;
+  /* Ensures items are laid out in a row */
+  justify-content: flex-end;
+  /* Aligns items to the right */
+  flex-wrap: nowrap;
+  /* Prevents items from wrapping to a new line */
+  overflow: hidden;
+  /* Prevents overflow */
+}
+
+/* Nav Menu Styles */
+.dashboard_navbar .navbar-collapse .navMenu {
+  display: flex;
+  /* Make navMenu a flex container */
+  flex-direction: row;
+  /* Align items in a row */
+  flex-wrap: nowrap;
+  /* Prevent wrapping */
+  overflow: hidden;
+  /* Prevent overflow */
+}
+
+.dashboard_navbar .navbar-collapse .navMenu li {
+  margin-right: 20px;
+  /* Spacing between items */
+  white-space: nowrap;
+  /* Prevent items from wrapping */
+}
+
+.dashboard_navbar .navbar-collapse .navMenu li:last-child {
+  margin-right: 0;
+  /* Remove margin from the last item */
+}
+
+/* Navbar Collapse Adjustment */
+.dashboard_navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Media Query for Mobile Devices */
+@media (min-width: 320px) and (max-width: 767px) {
+  .dashboard_navbar .navbar-collapse {
+    flex-grow: unset !important;
+    flex: unset !important;
+    width: 100%;
+    /* Ensure it takes full width */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: flex-end;
+    /* Align items to the right */
+  }
+
+  .dashboard_navbar .navbar-collapse .navMenu {
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent wrapping */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+  }
+
+  .dashboard_navbar .navbar-collapse .navMenu li {
+    display: inline-block;
+    /* Keep items in a row */
+    margin-right: 15px;
+    /* Adjust margin as needed */
+    margin-top: 5px;
+    /* Add a slight margin to adjust the vertical position */
+  }
+}
+
+/* Additional Styles for Nav Menu Items */
+.dashboard_navbar .navbar-collapse .navMenu li {
+  margin-right: 40px;
+}
+
+/* Media Query for Smaller Screens */
+@media (min-width: 320px) and (max-width: 1023px) {
+  .dashboard_navbar .navbar-collapse .navMenu li {
+    display: inline-block;
+    /* Ensure items are displayed */
+    margin-right: 0;
+    /* No margin on mobile */
+    margin-top: 5px;
+
+  }
+}
+
+/* Media Query for Wider Screens */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .dashboard_navbar .navbar-collapse .navMenu li {
+    margin-right: 11px;
+  }
+}
+
+/* Nav Link Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a {
+  color: #3d4152;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+
+/* Nav Link Hover Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a:hover {
+  color: #e57a10;
+}
+
+/* Nav Link Icon Hover Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a:hover svg {
+  fill: #e57a10;
+  stroke: #e57a10;
+}
+
+/* Nav Link Icon Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a svg {
+  position: relative;
+  top: -2px;
+  fill: #3d4152;
+  stroke-width: 0;
+}
+
+/* Nav Link Span Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a span {
+  padding-left: 10px;
+}
+
+/* Cart Count Styles */
+.dashboard_navbar .navbar-collapse .navMenu li a .cart_count {
+  position: relative;
+  padding: 0;
+}
+
+.dashboard_navbar .navbar-collapse .navMenu li a .cart_count .cart_count_value {
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-75%, -50%);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Show Mobile Items */
+@media (min-width: 320px) and (max-width: 1023px) {
+  .dashboard_navbar .navbar-collapse .navMenu .li_ShowMobile {
+    display: inline-block !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Category SVG Styles */
+.cat_svg {
+  fill: #fff !important;
+  stroke-width: 2px !important;
+  stroke: #282c3f;
+}
+
+/* Bottom Navbar Styles */
+.bottom_nav_Mobile {
+  display: none;
+}
+
+/* Media Query for Bottom Navbar Mobile */
+@media (min-width: 320px) and (max-width: 1023px) {
+  .bottom_nav_Mobile {
+    background: #fff;
+    position: fixed;
+    height: 63px;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    padding-top: 7px;
+  }
+
+  .bottom_nav_Mobile a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .bottom_nav_Mobile a span {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.fcontainer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 3% !important;
+}
+
+.card-slider-main {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-top: 10px;
+  gap: 30px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-slider-main::-webkit-scrollbar,
+.card-slider::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+}
+
+.label-container h2 {
+  font-family: "Poppins", serif;
+  margin-right: auto;
+}
+
+.label-container i {
+  font-size: 18px;
+}
+
+.label-container button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  color: #111;
+  cursor: pointer;
+  padding: 10px;
+  width: fit-content;
+  margin-left: 5px;
+}
+
+.label-container button:disabled {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+  border: none;
+}
+
+.card-wrapper {
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  background: transparent;
+  justify-content: space-between;
+  gap: 10px;
+  scroll-snap-align: center;
+  width: fit-content;
+  animation: scroll-images 10s linear infinite;
+}
+
+.card-wrapper img {
+  height: 200px;
+  width: 160px;
+  cursor: pointer;
+}
+
+@keyframes scroll-images {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-calc(100% + 10px));
+  }
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+  .container {
+    max-width: 350px;
+    margin: auto;
+    padding: 10px;
+
+  }
+
+  .card-wrapper img {
+    height: 100px;
+    width: 80px;
+    cursor: pointer;
+  }
+
+  .label-container h2 {
+    color: #111;
+    font-family: Poppins, serif;
+    margin-right: auto;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .label-container i {
+    font-size: 14px;
+  }
+
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .fcontainer {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button {
+  border: none;
+  cursor: pointer;
+}
+
+.mcontainer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+  margin-top: 5%;
+}
+
+.card-slider {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-top: 10px;
+  gap: 30px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-slider::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+}
+
+
+.label-container {
+  display: flex;
+  align-items: center;
+}
+
+.label-container h2 {
+  color: #111;
+  font-family: Poppins, serif;
+  margin-right: auto;
+  font-weight: 600;
+}
+
+.label-container .bi {
+  font-size: 18px;
+}
+
+.label-container button {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  color: #111;
+  cursor: pointer;
+  padding: 10px;
+  width: fit-content;
+  margin-left: 5px;
+}
+
+.label-container button:disabled {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+  border: none;
+}
+
+.restaurant-card {
+  transition: transform 0.3s ease-in-out;
+  font-family: "Arial", sans-serif;
+  background: transparent;
+}
+
+.restaurant-card:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  width: 300px;
+  height: 200px;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  border: none;
+  border-radius: 0 0 20px 20px;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1)100%);
+}
+
+.discount-badge {
+  position: absolute;
+  color: #fff;
+  bottom: 0;
+  left: 10px;
+  padding: 5px;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Proxima Nova Condensed", sans-serif;
+}
+
+.restaurant-name {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.rating {
+  display: flex;
+  align-items: start;
+  margin-top: 5px;
+  font-weight: semi-bold;
+}
+
+.review-count {
+  margin-left: 5px;
+  font-weight: semi-bold;
+}
+
+.delivery-info {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+  .container {
+    max-width: 350px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  /* Card Slider */
+
+  .label-container h2 {
+    color: #111;
+    font-family: Poppins, serif;
+    margin-right: auto;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .label-container i {
+    font-size: 14px;
+  }
+
+  /* Card Slider */
+
+  /* Restaurant Card */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .image-container img {
+    width: 180px;
+    height: 140px;
+    display: block;
+    border-radius: 20px;
+    object-fit: cover;
+    image-rendering: pixelated;
+  }
+
+  .image-container::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    left: 0;
+    right: 0;
+    border: none;
+    border-radius: 0 0 20px 20px;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  .discount-badge {
+    position: absolute;
+    color: #fff;
+    bottom: 0;
+    left: 10px;
+    padding: 5px;
+    z-index: 2;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: "Proxima Nova Condensed", sans-serif;
+  }
+
+  .restaurant-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+  }
+
+  .rating {
+    display: flex;
+    align-items: start;
+    margin-top: 3px;
+    font-weight: semi-bold;
+  }
+
+  .review-count {
+    margin-left: 3px;
+    font-weight: semi-bold;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .delivery-info {
+    display: flex;
+    font-size: 10px;
+    align-items: center;
+  }
+
+
+  /* Restaurant Card */
+}
+
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+
+/*  */
+#welcome-sec {
+  position: relative;
+  display: grid;
+  place-items: center;
+  -webkit-place-items: center;
+}
+
+.scroll-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 20px; /* Adjusted to move the arrow button above the "View more" button */
+  transform: translateX(-50%);
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 20px; /* Space between the arrow and the button */
+}
+
+.load-more {
+  font-size: 20px;
+  border: 1px solid #000;
+  color: #fff;
+  background-color: #000;
+  border-radius: 24px;
+  text-decoration: none;
+  padding: 12px 24px;
+  display: inline-block;
+  margin-top: 12px; /* Space between the button and any content above */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* On hover, text color will change to white */
+.load-more:hover {
+  color: #fff; /* Change text color to white */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .all-post {
+    grid-template-columns: repeat(4, 1fr); /* Two columns for tablets */
+  }
+
+  .all-post .restu-card {
+    font-size: 24px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all-post {
+    grid-template-columns: 4fr; /* One column for mobile */
+  }
+
+  .all-post .restu-card {
+    font-size: 20px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .all-post .restu-card {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .load-more {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+}
+
+#loadMore {
+  text-decoration: none;
+}
+
+/* Additional styles for the welcome section */
+#welcome-sec,
+#content {
+  float: left;
+  width: 100%;
+  height: 100vh;
+  margin-top: -35%; /* Adjust this value to move it higher or lower */
+}
+
+.scroll-btn a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3em;
+  font-weight: bold;
+  color: black;
+  transform: rotateZ(90deg);
+}
+
+.scroll-btn a span {
+  float: left;
+  animation: colors 1.5s infinite;
+}
+
+.scroll-btn a span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.scroll-btn a span:nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.scroll-btn a span:nth-child(3) {
+  animation-delay: 0.66s;
+}
+
+@keyframes colors {
+  0%,
+  40%,
+  100% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+.all-post {
+  display: grid; /* Ensure that the grid layout is applied */
+  grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+  gap: 20px; /* Add some space between the cards */
+}
+
+/* Adjust for tablets */
+@media (max-width: 1024px) {
+  .all-post {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+}
+
+/* Adjust for mobile devices */
+@media (max-width: 768px) {
+  .all-post {
+    grid-template-columns: repeat(1, 1fr); /* One column for mobile */
+  }
+}
+
+/* footer */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* login */

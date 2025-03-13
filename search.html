@@ -1,0 +1,515 @@
+<html lang="en">
+
+<head>
+    <title>Swiggy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/75cdf8c31d.js"></script>
+    <link rel="icon" href="./assests/logo.avif" type="image/png">
+    <link rel="stylesheet" href="./node_modules\bootstrap\dist\css\bootstrap.css">
+</head>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 5%;
+    }
+
+    .search-bar {
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .recent-searches {
+        margin-top: 20px;
+    }
+
+    .recent-search {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .recent-search-icon {
+        margin-right: 10px;
+    }
+
+    .show-more {
+        display: block;
+        text-align: right;
+        color: orange;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .popular-cuisines {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .cuisine {
+        width: 12%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .cuisine-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    button {
+        border: none;
+        cursor: pointer;
+    }
+
+    .fcontainer {
+        max-width: 1200px;
+        margin: auto;
+        padding: 10px;
+        margin-top: 3% !important;
+    }
+
+    .card-slider-main {
+        display: flex;
+        white-space: nowrap;
+        overflow-x: auto;
+        margin-top: 10px;
+        gap: 30px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card-slider-main::-webkit-scrollbar,
+    .card-slider::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    .label-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .label-container h2 {
+        font-family: "Poppins", serif;
+        margin-right: auto;
+    }
+
+    .label-container i {
+        font-size: 18px;
+    }
+
+    .label-container button {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        color: #111;
+        cursor: pointer;
+        padding: 10px;
+        width: fit-content;
+        margin-left: 5px;
+    }
+
+    .label-container button:disabled {
+        background-color: whitesmoke;
+        cursor: not-allowed;
+        border: none;
+    }
+
+    .card-wrapper {
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        background: transparent;
+        justify-content: space-between;
+        gap: 10px;
+        scroll-snap-align: center;
+        width: fit-content;
+        animation: scroll-images 10s linear infinite;
+    }
+
+    .card-wrapper img {
+        height: 200px;
+        width: 160px;
+        cursor: pointer;
+    }
+
+    @keyframes scroll-images {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-calc(100% + 10px));
+        }
+    }
+
+
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+
+        .container {
+            max-width: 350px;
+            margin: auto;
+            padding: 10px;
+
+        }
+
+        .card-wrapper img {
+            height: 100px;
+            width: 80px;
+            cursor: pointer;
+        }
+
+        .label-container h2 {
+            color: #111;
+            font-family: Poppins, serif;
+            margin-right: auto;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .label-container i {
+            font-size: 14px;
+        }
+
+    }
+
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .fcontainer {
+            max-width: 1140px;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 1320px;
+        }
+    }
+
+    .search-bar {
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .search-results {
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .result-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+    }
+
+    .result-item:hover {
+        background-color: #f4f4f4;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" class="search-input" id="restaurantSearch" placeholder="Search for restaurants and food">
+        </div>
+
+        <div id="searchResults" class="search-results" style="display: none;">
+        </div>
+
+        <div class="recent-searches">
+            <h3>Recent Searches</h3>
+            <a href="seol.html" style="text-decoration: none; color: black;">
+                <div class="recent-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    Seoul Fried Chicken
+            </a>
+        </div>
+        <div class="recent-search">
+            <a href="babu.html" style="text-decoration: none; color: black;">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                Babumoshai Biriyani & Kebab Wala </a>
+        </div>
+        <div class="recent-search">
+            <a href="mio.html" style="text-decoration: none; color: black;">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                Mio Amore - The Cake Shop </a>
+        </div>
+        <a href="home.html" class="show-more">SHOW MORE</a>
+    </div>
+
+    <!-- food -->
+    <div class="fcontainer" style="margin-top: 3%;">
+        <div class="main-slider">
+            <div class="label-container">
+                <h2>What's on your mind?</h2>
+                <!-- <button class="arrow-left"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button class="arrow-right"><i class="fa fa-arrow-right" aria-hidden="true"></i></button> -->
+            </div>
+            <div class="card-slider-main">
+                <div class="card-wrapper">
+                    <div class="card-wrapper">
+
+                        <a href="biriyani.html"> <img src="./assests/biri.avif" alt=""> </a>
+                    </div>
+                </div>
+                <div class="card-wrapper">
+                    <a href="salad.html"> <img src="./assests/salad.avif" alt=""></a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="kebab.html"> <img src="./assests/kebab.avif" alt=""></a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="idli.html"> <img src="./assests/idli.avif" alt=""></a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="pappu.html"> <img src="./assests/poori.avif" alt=""></a>
+                </div>
+
+                <div class="card-wrapper">
+                    <a href="pizza.html"> <img src="./assests/pizza.avif" alt=""> </a>
+                </div>
+
+                <div class="card-wrapper">
+                    <a href="burger.html"> <img src="./assests/burger.avif" alt=""> </a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="keventer.html"> <img src="./assests/Shake.avif" alt=""></a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="cake.html"> <img src="./assests/cake.avif" alt=""></a>
+                </div>
+                <div class="card-wrapper">
+                    <a href="dosa.html"> <img src="./assests/dosa.avif" alt=""></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <style>
+        .result-item {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .result-item a {
+            text-decoration: none;
+            color: black;
+            /* Change the link color to black */
+        }
+
+        .result-item a:hover {
+            text-decoration: none;
+            /* Optional: underline on hover */
+        }
+
+        #searchResults {
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+
+
+
+
+    <script>
+        const restaurants = [
+            { name: "Domino's Pizza (4.6) - Pizzas, Italian, Pastas, Desserts", link: "./domi.html" },
+            { name: "KFC (4.6) - Fried Chicken, Burgers, Beverages", link: "./kfc.html" },
+            { name: "Burger King (4.6) - Burgers, American", link: "./burgerking.html" },
+            { name: "Baskin Robbins (4.6) - Ice Cream Desserts", link: "./br.html" },
+            { name: "Arsalan (4.5) - Biryani,Mughlai", link: "./arsalan.html" },
+            { name: "Pizza Hut (4.2) - Pizzas", link: "./pizza9.html" },
+            { name: "Oudh 1590 (4.0) - North Indian", link: "./oudh.html" },
+            { name: "Wow! China (4.4) - Tibetan, Healthy Food", link: "./wchina.html" },
+            { name: "Chowman (4.5) - Chinese, Asian, Thai, Oriental", link: "./chow.html" },
+            { name: "Mio Amore (4.3) - Ice Cream Desserts,Cakes", link: "./mio.html" },
+            { name: "Monginis Cake Shop (4.3) - Ice Cream Desserts,Cakes", link: "./monginis.html" },
+            { name: "Pappu Chaiwalla (4.5) - North Indian", link: "./pappu.html" },
+            { name: "Keventers (4.3) - Milkshakes & Desserts", link: "./keventer.html" },
+            { name: "The Belgian Waffle Co. (4.1) - Waffle, Desserts", link: "./belgian.html" },
+            { name: "Chai Break (4.4) - Pizza, North Indian", link: "./chai.html" },
+            { name: "Uncle Peter's Pancakes (4.2) - Desserts, Continental", link: "./uncle.html" },
+            { name: "Kung Pao (4.5) - Chinese, Thai", link: "./kung.html" },
+            { name: "La Pino'z Pizza (4.5) - Italian, Pizzas, Pasta", link: "./pizza7.html" },
+            { name: "Mama Mia!- Italian Desserts (4.4) - Ice Cream, Desserts,Cakes", link: "./mamamia.html" },
+            { name: "Seoul Fried Chicken (4.6) - American, Fast Food", link: "./seol.html" },
+            { name: "Dimpi Restaurant (4.3) - Chinese, South Indian", link: "./dimpi.html" },
+            { name: "Dada Boudi Biriyani (4.4) - Biryani, North Indian", link: "./dadaboudi.html" },
+            { name: "Tandoor Box (4.4) - Tandoor, Kebabs", link: "./tbox.html" },
+            { name: "Indian Biryani House (4.6) - Biryani,Mughlai", link: "./biryani13.html" },
+            { name: "Kolkata@99 (4.4) - Biryani, Indian", link: "./kol99.html" },
+            { name: "Biryani By Kilo (4.4) - Biryani", link: "./biryani4.html" },
+            { name: "Aminia (4.4) - Biryani", link: "./aminia.html" },
+            { name: "Babumosai Biriyani and Kebab Wala (4.4) - Tandoor, Kebabs", link: "./babu.html" },
+            { name: "Foodies (4.5) - Home Food, Fast Food", link: "./foodies.html" },
+            { name: "Sharma Food and Snacks (4.5) - Home Food, Fast Food", link: "./sharma.html" },
+            { name: "Trupt (4.5) - Kebabs, Fast Food", link: "./trupt.html" },
+            { name: "Chennai Xpress (4.5) - North Indian", link: "./idli.html" },
+            { name: "Olio - The Wood Fired Pizza (4.0) - Pizza,Fast Food", link: "./pizza8.html" },
+            { name: "PIZZAMOC'S (4.5) - Italian, Chinese", link: "./pizzamoc.html" },
+            { name: "Red Chilli (4.5) -  Chinese", link: "./red.html" },
+            { name: "Om Cook And Carry (4.5) -  Chinese, Asian, Thai, Oriental", link: "./om.html" },
+            { name: "Haji Sahed Park Circus (4.6) -  Mughlai, North Indian", link: "./biryani1.html" },
+            { name: "Shimla Biryani (4.0) -  Biryani, Indian", link: "./biryani2.html" },
+            { name: "Goila Butter Chicken (4.2) -  Indian", link: "./biryani3.html" },
+            { name: "Haji Ali (4.6) -  Biryani,Mughlai", link: "./biryani5.html" },
+            { name: "Guddu Biryani (4.0) -  Biryani,Indian", link: "./biryani6.html" },
+            { name: "Sananda Biryani (4.2) -  Mughlai,Biryani", link: "./biryani7.html" },
+            { name: "Ashraf Biryani Centre (4.5) - Biryani, Hyderabadi", link: "./biryani8.html" },
+            { name: "Dum Safar Biryani (4.0) - Biryani,Indian", link: "./dumsafar.html" },
+            { name: "Riyasat-E-Hind (4.6) - Biryani, Mughlai", link: "./biryani9.html" },
+            { name: "Bomb Biryani - Tawa Style (4.0) - Biryani, Indian", link: "./biryani10.html" },
+            { name: "Behrouz Biryani (4.2) - Mughlai,Biryani", link: "./biryani11.html" },
+            { name: "Bagara Bawarchi (4.5) - Biryani", link: "./biryani12.html" },
+            { name: "Fusion Fantasea (4.0) - Biryani,Indian", link: "./biryani14.html" },
+            { name: "ITC Sonar - Biryani & Pulao Collection (4.2) - Mughlai,Biryani", link: "./biryani15.html" },
+            { name: "Kabuliwala (4.5) - Biryani", link: "./biryani16.html" },
+            { name: "Yoga Bowl (4.6) - Chinese ,Salads", link: "./yogabowl.html" },
+            { name: "The Chaiwala (4.0) - Chinese ,Salads", link: "./salad2.html" },
+            { name: "Food Peddler Sandwiches (4.2) - Chinese ,Salads", link: "./salad3.html" },
+            { name: "Between The Bread (4.5) - Chinese ,Salads", link: "./salad4.html" },
+            { name: "Blue Tokai Coffee Roasters (4.6) - Chinese ,Salads", link: "./salad5.html" },
+            { name: "Amritsari Dhaba (4.0) - Chinese ,Salads", link: "./salad6.html" },
+            { name: "Shawarma Nation (4.5) - Chinese ,Salads", link: "./salad8.html" },
+            { name: "Subway (4.2) - Chinese ,Salads", link: "./salad7.html" },
+            { name: "Oven Story Pizza (4.6) - Pizza,Fast Food", link: "./pizza1.html" },
+            { name: "Eagle Bites Pizza (4.3) - Pizza,Fast Food", link: "./pizza2.html" },
+            { name: "Sorano (4.1) - Pizza,Fast Food", link: "./pizza3.html" },
+            { name: "Chicago Pizza (4.5) - Pizza,Fast Food", link: "./pizza4.html" },
+            { name: "New Grissini (3.9) - Pizza,Fast Food", link: "./pizza5.html" },
+            { name: "Za (4.0) - Pizza,Fast Food", link: "./pizza10.html" },
+            { name: "ENSO - Sourdough Pizza by Nomad (4.1) - Pizza,Fast Food", link: "./pizza11.html" },
+            { name: "HFC (4.0) - Pizza,Fast Food", link: "./pizza12.html" },
+            { name: "McDonald's (4.6) - Burger,Fast Food", link: "./burger1.html" },
+            { name: "Burger Singh (4.1) - Burger,Fast Food", link: "./burger3.html" },
+            { name: "Hungergasm (4.5) - Burger,Fast Food", link: "./burger4.html" },
+            { name: "Bucket Of Fry (4.0) - Burger,Fast Food", link: "./burger6.html" },
+            { name: "Burger In Law By EatVerse (4.1) - Burger,Fast Food", link: "./burger7.html" },
+            { name: "Fat Mamma's (4.0) - Burger,Fast Food", link: "./burger8.html" },
+            { name: "Burger Bites (4.7) - Burger,Fast Food", link: "./burger9.html" },
+            { name: "The Big Burgers (4.0) - Burger,Fast Food", link: "./burger10.html" },
+            { name: "Burger Factory (4.1) - Burger,Fast Food", link: "./burger11.html" },
+            { name: "Griddle's - Burgers,Rolls & Bowls (4.0) - Burger,Fast Food", link: "./burger12.html" },
+            { name: "Ammini (4.6) - South Indian,Kerala", link: "./dosa1.html" },
+            { name: "Kela Patta (4.0) - South Indian,Kerala", link: "./kelapatta.html" },
+            { name: "Banana Leaf (4.2) - South Indian", link: "./dosa3.html" },
+            { name: "Dosa Express (4.5) - South Indian,Continental", link: "./dosa4.html" },
+            { name: "IdlyGo Plus (4.6) - South Indian", link: "./dosa5.html" },
+            { name: "Vaango (4.2) - South Indian", link: "./dosa6.html" },
+            { name: "The Flavour of South (4.2) - South Indian", link: "./dosa7.html" },
+            { name: "Kurry Patta (4.5) - South Indian", link: "./dosa8.html" },
+            { name: "Uttapam- Flavours of South (4.2) - South Indian", link: "./dosa9.html" },
+            { name: "Ramanee (4.0) - South Indian", link: "./dosa10.html" },
+            { name: "Rasam - The Stadel Hotel (4.2) - South Indian", link: "./dosa11.html" },
+            { name: "Tirupati (4.5) - South Indian", link: "./dosa12.html" },
+            { name: "Garden Cafe Express (4.6) - South Indian", link: "./dosa13.html" },
+            { name: "Raj Restaurant (4.0) - South Indian", link: "./dos14.html" },
+            { name: "Krishna's Mishti Cafe (4.2) - South Indian", link: "./dosa15.html" },
+            { name: "The Chutney Co. (4.5) - South Indian", link: "./dosa16.html" },
+        ];
+
+        const searchInput = document.getElementById('restaurantSearch');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.toLowerCase();
+            searchResults.innerHTML = ''; // Clear previous results
+
+            if (query) {
+                const filteredRestaurants = restaurants.filter(function (restaurant) {
+                    return restaurant.name.toLowerCase().includes(query);
+                });
+
+                if (filteredRestaurants.length > 0) {
+                    searchResults.style.display = 'block';
+                    filteredRestaurants.forEach(function (restaurant) {
+                        const div = document.createElement('div');
+                        div.classList.add('result-item');
+                        div.innerHTML = `<a href="${restaurant.link}" target="_blank">${restaurant.name}</a>`;
+                        searchResults.appendChild(div);
+                    });
+                } else {
+                    searchResults.style.display = 'none';
+                }
+            } else {
+                searchResults.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
