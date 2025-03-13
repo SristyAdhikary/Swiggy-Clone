@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Ensure .html files are processed correctly
+AddType text/html .html
+
+# Allow direct access to static files (CSS, JS, Images)
+<FilesMatch "\.(html|css|js|png|jpg|jpeg|gif|ico|woff|woff2|ttf|svg)$">
+    Require all granted
+</FilesMatch>
+
+# Redirect requests for non-static files to PHP scripts if needed
