@@ -297,7 +297,7 @@ $delivery_person = "Rahul"; // Delivery person name
     </div>
     
     <div class="more-meals">
-        <a href="home.html">Browse for More Meals</a>
+        <a href="index.html">Browse for More Meals</a>
     </div>
 </div>
 
